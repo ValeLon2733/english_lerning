@@ -1,0 +1,58 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.app {
+  background: white;
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  text-align: center;
+}
+
+nav { margin-bottom: 1.5rem; }
+
+button {
+  padding: .6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #e2e8f0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+button:hover { background: #cbd5e1; }
+button.active { background: #3b82f6; color: white; }
+
+.card {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: #eff6ff;
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hint { color: #64748b; font-size: .9rem; }
+.controls { display: flex; gap: .5rem; justify-content: center; }
+
+#options button {
+  display: block;
+  width: 100%;
+  margin: .5rem 0;
+}
+.correct { background: #86efac !important; }
+.wrong { background: #fca5a5 !important; }
+.hidden { display: none; }
