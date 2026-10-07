@@ -3,40 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aprende Inglés</title>
+  <title>English Path</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <h1>📚 Aprende Inglés</h1>
-
-    <nav>
-      <button id="btn-cards" class="active">Tarjetas</button>
-      <button id="btn-quiz">Quiz</button>
-    </nav>
-
-    <!-- Modo tarjetas -->
-    <section id="cards-mode">
-      <div class="card" id="card">
-        <span id="card-text">Hello</span>
-      </div>
-      <p class="hint">Haz clic en la tarjeta para ver la traducción</p>
-      <div class="controls">
-        <button id="prev">⬅ Anterior</button>
-        <button id="speak">🔊 Escuchar</button>
-        <button id="next">Siguiente ➡</button>
-      </div>
-    </section>
-
-    <!-- Modo quiz -->
-    <section id="quiz-mode" class="hidden">
-      <h2 id="question"></h2>
-      <div id="options"></div>
-      <p id="feedback"></p>
-      <p>Puntaje: <strong id="score">0</strong></p>
-    </section>
-  </main>
-
+  <main id="app"></main>
+  <script src="a1.js"></script>
+  <script src="content.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

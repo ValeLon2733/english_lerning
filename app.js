@@ -103,7 +103,26 @@ function lesson(lv, b, l) {
     ${L.sample ? '<p class="note">Contenido de ejemplo: aún falta escribir esta lección en content.js</p>' : ""}
     <p class="sub">Toca 🔊 para escuchar cada palabra</p>
     ${L.w.map((w) => `<div class="w"><span><b>${w[0]}</b> — ${w[1]}</span><button class="ghost" onclick="say('${w[0].replace(/'/g, "\\'")}')">🔊</button></div>`).join("")}
+    <button class="ghost opt" id="ex">💡 Explícame más</button>
+    <div id="exb" class="note" style="display:none">${L.e}</div>
+    <details><summary>❓ Tengo una pregunta</summary>
+      <textarea id="qt" rows="3" placeholder="Escribe tu duda sobre esta lección"></textarea>
+      <button class="opt" id="qs">Enviar pregunta</button><p id="qm" class="sub"></p>
+    </details>
     <button class="big" id="go">Practicar</button>`;
+  document.getElementById("ex").onclick = () => {
+    const d = document.getElementById("exb");
+    d.style.display = d.style.display === "none" ? "block" : "none";
+  };
+  document.getElementById("qs").onclick = () => {
+    const t = document.getElementById("qt").value.trim();
+    if (!t) return;
+    const qs = JSON.parse(localStorage.getItem("questions") || "[]");
+    qs.push({ lesson: L.title, text: t, date: new Date().toISOString() });
+    localStorage.setItem("questions", JSON.stringify(qs));
+    document.getElementById("qt").value = "";
+    document.getElementById("qm").textContent = "✅ Pregunta guardada";
+  };
   document.getElementById("go").onclick = () => quiz(makeQs(lv, L.w, 6), (g) => {
     const s = st(K(lv, b));
     if (g >= 3) { s.done[l] = true; save(); }
